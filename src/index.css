@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#dice-box,
+#dice-box canvas {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  background-color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+}
+
+.icon {
+  @apply text-3xl fill-orange-600;
+}
+
+.large-icon {
+  @apply text-5xl fill-orange-600;
+}
