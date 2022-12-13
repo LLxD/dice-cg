@@ -35,12 +35,7 @@ function App() {
     <div className="grid items-center justify-center h-screen">
       <div className="grid  gap-10">
         <h1 className="text-6xl text-center">Rolagem de Dados</h1>
-        <button
-          className="mx-auto border rounded py-2 px-4 bg-orange-600 w-48 text-white"
-          onClick={() => rollDice(diceValues)}
-        >
-          Rolar dados
-        </button>
+
         <div className="grid gap-4">
           <div className="grid gap-2 grid-flow-col">
             <DiceTray
@@ -77,7 +72,14 @@ function App() {
             />
           </div>
         </div>
+        <button
+          className="mx-auto border rounded py-2 px-4 bg-orange-600 w-48 text-white"
+          onClick={() => rollDice(diceValues)}
+        >
+          Rolar dados
+        </button>
       </div>
+
       <div id="dice-box"></div>
     </div>
   );
