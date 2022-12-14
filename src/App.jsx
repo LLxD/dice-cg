@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Dice } from "./components/diceBox";
 import DiceTray from "./components/DiceTray";
+import { useAlert } from "react-alert";
 
 function App() {
+  const alert = useAlert();
   Dice.init().then(() => {
     // clear dice on click anywhere on the screen
     document.addEventListener("mousedown", () => {
@@ -17,7 +19,15 @@ function App() {
     //for each dice value in the array, roll the dice if the value is bigger than 0
     diceValues.forEach((diceValue) => {
       if (diceValue[0] > 0) {
-        Dice.show().roll(diceValue);
+        Dice.show()
+          .roll(diceValue)
+          .then((result) => {
+            let sum = 0;
+            result.map((dice) => {
+              sum += dice.value;
+            });
+            alert.show(`You rolled ${sum}!`);
+          });
       }
     });
   };
