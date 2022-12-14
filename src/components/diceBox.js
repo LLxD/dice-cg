@@ -13,6 +13,7 @@ const Dice = new DiceBox(
     throwForce: 6,
     spinForce: 5,
     lightIntensity: 0.9,
+    theme: "theme-dice-of-rolling",
   }
 );
 
