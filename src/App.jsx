@@ -36,8 +36,8 @@ function App() {
       <div className="grid  gap-10">
         <h1 className="text-6xl text-center">Rolagem de Dados</h1>
 
-        <div className="grid gap-4">
-          <div className="grid gap-2 grid-flow-col">
+        <div className="grid gap-2 lg:gap-4 items-center justify-center">
+          <div className="grid gap-2 lg:grid-flow-col">
             <DiceTray
               diceTitle="d4"
               diceValues={diceValues}
@@ -54,7 +54,7 @@ function App() {
               setDiceValues={setDiceValues}
             />
           </div>
-          <div className="grid gap-2 grid-flow-col">
+          <div className="grid gap-2 lg:grid-flow-col">
             <DiceTray
               diceTitle="d10"
               diceValues={diceValues}

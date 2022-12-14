@@ -73,7 +73,9 @@ const DiceTray = ({ diceValues, setDiceValues, diceTitle }) => {
           value={diceCount}
           onChange={(e) => setDiceCount(e.target.value)}
         />
-        <button onClick={() => setDiceCount(diceCount - 1)}>
+        <button
+          onClick={() => (diceCount > 0 ? setDiceCount(diceCount - 1) : {})}
+        >
           <AiOutlineMinusCircle className="icon" />
         </button>
       </div>
