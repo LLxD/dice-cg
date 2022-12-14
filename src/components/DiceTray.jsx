@@ -61,8 +61,13 @@ const DiceTray = ({ diceValues, setDiceValues, diceTitle }) => {
 
   return (
     <div className="grid justify-around grid-flow-col w-56 border-orange-600 gap-2 border-2 px-2 py-6 rounded">
-      {diceIcons[diceTitle]}
-      <div className="grid grid-flow-col gap-2 w-24 justify-evenly">
+      <div>
+        {diceIcons[diceTitle]}
+        <div>
+          <p className="text-white text-center pt-2">{diceTitle}</p>
+        </div>
+      </div>
+      <div className="grid grid-flow-col gap-2 w-24 items-center justify-evenly">
         <button onClick={() => setDiceCount(diceCount + 1)}>
           <AiOutlinePlusCircle className="icon" />
         </button>
