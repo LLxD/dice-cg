@@ -26,7 +26,10 @@ function App() {
             result.map((dice) => {
               sum += dice.value;
             });
-            alert.show(`You rolled ${sum}!`);
+            //show an alert with the sum of the dice if it's not NaN
+            if (!isNaN(sum)) {
+              alert.show(`You rolled ${sum}!`);
+            }
           });
       }
     });
