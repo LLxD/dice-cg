@@ -3,6 +3,9 @@
 ## Presentation
 [Link](https://www.canva.com/design/DAFQ2KmfKLc/7mNNxn-4qPWmnb0Lp2jQsw/view?utm_content=DAFQ2KmfKLc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
+## Final Task
+Check it out live [here](https://dice-cg.vercel.app/)
+
 
 Possible future steps:
 
