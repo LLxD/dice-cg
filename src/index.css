@@ -4,11 +4,7 @@
 
 #dice-box,
 #dice-box canvas {
-  position: fixed;
-  pointer-events: none;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
+  @apply pointer-events-none w-full lg:w-[85%] absolute right-0 z-50;
 }
 
 :root {
@@ -29,5 +25,5 @@ h6 {
 }
 
 .large-icon {
-  @apply text-5xl fill-orange-600;
+  @apply text-3xl fill-orange-600;
 }

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Dice } from "./components/diceBox";
 import DiceTray from "./components/DiceTray";
 import { useAlert } from "react-alert";
+import Graph from "./components/Graph";
 
-function App() {
+function App({}) {
   const alert = useAlert();
   Dice.init().then(() => {
     // clear dice on click anywhere on the screen
@@ -45,12 +46,13 @@ function App() {
   ]);
 
   return (
-    <div className="grid items-center justify-center h-screen">
-      <div className="grid  gap-10">
-        <h1 className="text-6xl text-center">Dice Rolling</h1>
-
-        <div className="grid gap-2 lg:gap-4 items-center justify-center">
-          <div className="grid gap-2 lg:grid-flow-col">
+    <>
+      <section>
+        <div className="flex lg:my-0 my-10 lg:w-96 flex-col gap-6 justify-center items-center lg:items-center lg:px-10 h-screen">
+          <h1 className="text-3xl text-center lg:mt-0 mt-4 lg:text-6xl">
+            Dice Rolling
+          </h1>
+          <div className="grid gap-2 lg:gap-4 grid-flow-row">
             <DiceTray
               diceTitle="d4"
               diceValues={diceValues}
@@ -66,8 +68,6 @@ function App() {
               diceValues={diceValues}
               setDiceValues={setDiceValues}
             />
-          </div>
-          <div className="grid gap-2 lg:grid-flow-col">
             <DiceTray
               diceTitle="d10"
               diceValues={diceValues}
@@ -84,17 +84,19 @@ function App() {
               setDiceValues={setDiceValues}
             />
           </div>
+          <button
+            className="rounded py-2 px-4 h-12 hover:bg-orange-700 bg-orange-600 w-48 text-white"
+            onClick={() => rollDice(diceValues)}
+          >
+            Roll dice!
+          </button>
         </div>
-        <button
-          className="mx-auto rounded py-2 px-4 hover:bg-orange-700 bg-orange-600 w-48 text-white"
-          onClick={() => rollDice(diceValues)}
-        >
-          Roll dice!
-        </button>
-      </div>
-
-      <div id="dice-box"></div>
-    </div>
+        <div id="dice-box"></div>
+      </section>
+      <section>
+        <Graph data={diceValues} />
+      </section>
+    </>
   );
 }
 
