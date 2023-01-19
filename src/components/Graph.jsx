@@ -16,6 +16,7 @@ const Graph = ({ data }) => {
     // when rolling multiple dice, the minimum possible value is the number of dice
     // when rolling a single die, the minimum possible value is 1
     const maxPossibleValue = numberOfDice * diceType;
+    const minPossibleValue = numberOfDice > 1 ? numberOfDice : 1;
 
     // for each possible value, calculate the probability of rolling that value
     // following a normal distribution if there are multiple dice
@@ -26,11 +27,23 @@ const Graph = ({ data }) => {
     for (let i = 1; i <= maxPossibleValue; i++) {
       let probability = 0;
       if (numberOfDice > 1) {
-        probability =
-          (1 / (Math.sqrt(2 * Math.PI) * diceType)) *
-          Math.exp(
-            -((i - numberOfDice * (diceType / 2)) ** 2) / (2 * diceType ** 2)
-          );
+        // get the probability of rolling a number by using a normal distribution
+        // all numbers below the minimum possible value have a probability of 0
+        // all numbers above the maximum possible value have a probability of 0
+
+        if (i < minPossibleValue) {
+          probability = 0;
+        }
+        if (i > maxPossibleValue) {
+          probability = 0;
+        }
+        if (i >= minPossibleValue && i <= maxPossibleValue) {
+          probability =
+            (1 / (Math.sqrt(2 * Math.PI) * diceType)) *
+            Math.exp(
+              -((i - numberOfDice * (diceType / 2)) ** 2) / (2 * diceType ** 2)
+            );
+        }
       } else {
         probability = 1 / diceType;
       }
