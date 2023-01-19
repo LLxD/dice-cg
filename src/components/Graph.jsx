@@ -36,7 +36,7 @@ const Graph = ({ data }) => {
       }
       probabilityArray.push({
         number: i,
-        Chances: probability * 100,
+        Chances: Math.round(probability * 10000) / 100,
       });
     }
 
