@@ -67,23 +67,25 @@ const DiceTray = ({ diceValues, setDiceValues, diceTitle }) => {
           <p className="text-white text-center pt-2">{diceTitle}</p>
         </div>
       </div>
-      <button
-        onClick={() => (diceCount > 0 ? setDiceCount(diceCount - 1) : {})}
-      >
-        <AiOutlineMinusCircle className="icon" />
-      </button>
-      <div className="grid grid-flow-col gap-2 w-24 items-center justify-evenly">
-        <input
-          className=" outline-none text-2xl w-10 bg-transparent text-white text-center"
-          placeholder="1"
-          readOnly
-          value={diceCount}
-          onChange={(e) => setDiceCount(e.target.value)}
-        />
-
-        <button onClick={() => setDiceCount(diceCount + 1)}>
-          <AiOutlinePlusCircle className="icon" />
+      <div className="grid gap-1 grid-flow-col">
+        <button
+          onClick={() => (diceCount > 0 ? setDiceCount(diceCount - 1) : {})}
+        >
+          <AiOutlineMinusCircle className="icon" />
         </button>
+        <div className="grid grid-flow-col gap-2 w-24 items-center justify-evenly">
+          <input
+            className=" outline-none text-2xl w-10 bg-transparent text-white text-center"
+            placeholder="1"
+            readOnly
+            value={diceCount}
+            onChange={(e) => setDiceCount(e.target.value)}
+          />
+
+          <button onClick={() => setDiceCount(diceCount + 1)}>
+            <AiOutlinePlusCircle className="icon" />
+          </button>
+        </div>
       </div>
     </div>
   );

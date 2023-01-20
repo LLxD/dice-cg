@@ -3,6 +3,7 @@ import { Dice } from "./components/diceBox";
 import DiceTray from "./components/DiceTray";
 import { useAlert } from "react-alert";
 import Graph from "./components/Graph";
+import { Element, scroller } from "react-scroll";
 
 function App({}) {
   const alert = useAlert();
@@ -30,6 +31,11 @@ function App({}) {
             //show an alert with the sum of the dice if it's not NaN
             if (!isNaN(sum)) {
               alert.show(`You rolled ${sum}!`);
+              scroller.scrollTo("graph", {
+                duration: 1500,
+                delay: 100,
+                smooth: true,
+              });
             }
           });
       }
@@ -48,7 +54,7 @@ function App({}) {
   return (
     <>
       <section>
-        <div className="flex lg:my-0 my-10 lg:w-96 flex-col gap-6 justify-center items-center lg:items-center lg:px-10 h-screen">
+        <div className="border-2 border-orange-500 flex lg:my-0 mb-10 lg:w-96 flex-col gap-6 justify-center items-center lg:items-center lg:px-10 lg:h-screen">
           <h1 className="text-3xl text-center lg:mt-0 mt-4 lg:text-6xl">
             Dice Rolling
           </h1>
@@ -94,7 +100,9 @@ function App({}) {
         <div id="dice-box"></div>
       </section>
       <section>
-        <Graph data={diceValues} />
+        <Element name="graph">
+          <Graph data={diceValues} />
+        </Element>
       </section>
     </>
   );

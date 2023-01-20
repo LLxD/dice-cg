@@ -4,7 +4,7 @@
 
 #dice-box,
 #dice-box canvas {
-  @apply pointer-events-none w-full lg:w-[85%] absolute right-0 z-50;
+  @apply pointer-events-none fixed h-[90%] w-full lg:w-[85%] lg:absolute lg:right-0 z-50;
 }
 
 :root {
